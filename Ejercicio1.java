@@ -21,7 +21,7 @@ public class Ejercicio1 {
 
         Scanner scaner = new Scanner(System.in);
 
-        int operacion = 0, resultado = 0;
+        int operacion = 0;
         int n1 = 0, n2 = 0;
         String escribir = "";
 
@@ -45,27 +45,25 @@ public class Ejercicio1 {
                 escribir = "resultado de la suma: " + resultado;
                 System.out.println("resultado de la suma: " + resultado);
                 break;
-
             case 2:
                 resultado = resta(n1, n2);
                 escribir = "resultado de la resta: " + resultado;
                 System.out.println("resultado de la resta: " + resultado);
                 break;
-
             case 3:
                 resultado = multiplicacion(n1, n2);
                 escribir = "resultado de la multiplicacion: " + resultado;
                 System.out.println("resultado de la multiplicacion: " + resultado);
                 break;
-
             case 4:
                 resultado = division(n1, n2);
                 escribir = "resultado de la division: " + resultado;
                 System.out.println("resultado de la division: " + resultado);
                 break;
         }
+        
         try {
-            Files.write(Paths.get("archivito.txt"), escribir.getBytes());
+            Files.write(Paths.get("resultados.txt"), escribir.getBytes());
             System.out.println("Se escribe el archivo");
 
         } catch (IOException e) {
