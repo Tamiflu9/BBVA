@@ -30,7 +30,7 @@ public class ComidaFav extends DatosPersonales{
     @Override
     public String toString() {
         return "ComidaFav{" +
-                "comida='" + comida + '\'' +
+                "comida= " + comida + '\'' +
                 '}';
     }
 
