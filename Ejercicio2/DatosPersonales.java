@@ -52,10 +52,10 @@ public class DatosPersonales {
     @Override
     public String toString() {
         return "DatosPersonales{" +
-                "nombre='" + nombre + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", puesto='" + puesto + '\'' +
-                ", ciudad='" + ciudad + '\'' +
+                "nombre= " + nombre + '\'' +
+                ", apellidos= " + apellidos + '\'' +
+                ", puesto= " + puesto + '\'' +
+                ", ciudad= " + ciudad + '\'' +
                 '}';
     }
 }
