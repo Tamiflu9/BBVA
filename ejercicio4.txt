@@ -1,0 +1,106 @@
+-- create
+CREATE TABLE EMPLOYEE (
+  empId INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  dept TEXT NOT NULL,
+  StartDate DATE
+);
+
+CREATE TABLE DEPARTAMENTS
+(
+  depID       INTEGER PRIMARY KEY,
+  dept_Name   VARCHAR (100),
+  ubicacion   VARCHAR (100)
+);
+
+-- insert
+INSERT INTO EMPLOYEE VALUES (0001, 'Clark', 'Sales', '2020-01-01');
+INSERT INTO EMPLOYEE VALUES (0002, 'Dave', 'Accounting', '2021-01-01');
+INSERT INTO EMPLOYEE VALUES (0003, 'Ava', 'Sales', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0004, 'Gustavo', 'Marketing', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0005, 'Daniel', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0006, 'Sergio', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0007, 'Alvaro', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0008, 'Alejandro', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0009, 'Pablo', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0010, 'Borja', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0011, 'Tamara', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0012, 'Zhusen Jin', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0013, 'Santiago', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (0014, 'Mario', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (00015, 'Miguel', 'IT', '2022-10-10');
+INSERT INTO EMPLOYEE VALUES (00016, 'Enrique', 'IT', '2022-10-10');
+INSERT INTO DEPARTAMENTS VALUES (0001, 'Sales', 'Madrid');
+INSERT INTO DEPARTAMENTS VALUES (0002, 'Accounting', 'Barcelona');
+INSERT INTO DEPARTAMENTS VALUES (0003, 'Marketing', 'Malaga');
+INSERT INTO DEPARTAMENTS VALUES (0004, 'HR', 'Barcelona');
+INSERT INTO DEPARTAMENTS VALUES (0005, 'IT', 'Madrid');
+
+
+/*
+Actividad numero 1:
+Diseñar un query que traiga todos los empleados de la tabla Empleados
+*/
+
+select empId, name from EMPLOYEE;
+
+
+/*
+Actividad numero 2:
+Diseñar un query que traiga los nombres desduplicados de los empleados. 
+*/
+
+select empId, Distinciname from EMPLOYEE;
+
+
+/*
+Actividad numero 3:
+Diseñar un query que traiga todos los empleados que hayan ingresado en el año 2022 
+*/
+
+select empId, name from EMPLOYEE where year(StartDate) = 2022;
+
+
+/*
+Actividad numero 4:
+Diseñar un query que traiga todos los empleados que hayan ingresado en el año 2022 
+y trabajen en el departamento de IT
+*/
+
+select EMPLOYEE.empId, EMPLOYEE.name, EMPLOYEE.dept from EMPLOYEE 
+left join DEPARTAMENTS
+on EMPLOYEE.dept = DEPARTAMENTS.dept_Name
+where year(EMPLOYEE.StartDate) = 2022
+and DEPARTAMENTS.dept_Name = 'IT';
+
+
+/*
+Actividad numero 5:
+Diseñar un query que cuente la CANTIDAD de registros en la tabla de Employee
+*/
+
+select count(empId) from EMPLOYEE;
+
+
+/*
+Actividad numero 6:
+Diseñar un query que traiga de la tabla de Employee el Nombre del empleado y el employee id,y,
+de la tabla de Departamentos el depID
+*/
+
+select EMPLOYEE.empId, EMPLOYEE.name, DEPARTAMENTS.depID from EMPLOYEE 
+left join DEPARTAMENTS
+on EMPLOYEE.dept = DEPARTAMENTS.dept_Name;
+
+
+/*
+Actividad numero 7:
+Diseñar un query que traiga lo siguiente: conteo de empleados y a que Ciudad pertenecen
+*/
+
+select DEPARTAMENTS.ubicacion, count(EMPLOYEE.empId) from EMPLOYEE
+left join DEPARTAMENTS on EMPLOYEE.dept = DEPARTAMENTS.dept_Name
+group by ubicacion;
+
+
+
