@@ -57,7 +57,13 @@ public class Hilos extends Thread{
 
     public int division(int n1, int n2, int n3) {
 
-        return n1 / n2 / n3;
+        int div = 0;
+        try {
+            div = n1 / n2 / n3;
+        }catch (ArithmeticException e) {
+            System.out.println("Error: Division por cero");
+        }
+        return div;
     }
 
     public  int multiplicacion(int n1, int n2, int n3) {
