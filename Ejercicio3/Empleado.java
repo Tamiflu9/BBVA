@@ -89,10 +89,10 @@ public class Empleado extends Personas implements iCalcularSueldo{
 
         String contenido1 = empleado1.toString() + empleado1.toString() +
                 "Sueldo final:" + empleado1.calculoSueldoFinal(empleado1.getSueldo());
-        String contenido2 = empleado1.toString() + empleado1.toString() +
-                "Sueldo final:" + empleado1.calculoSueldoFinal(empleado1.getSueldo());
-        String contenido3 = empleado1.toString() + empleado1.toString() +
-                "Sueldo final:" + empleado1.calculoSueldoFinal(empleado1.getSueldo());
+        String contenido2 = empleado2.toString() + empleado2.toString() +
+                "Sueldo final:" + empleado2.calculoSueldoFinal(empleado2.getSueldo());
+        String contenido3 = empleado3.toString() + empleado3.toString() +
+                "Sueldo final:" + empleado3.calculoSueldoFinal(empleado3.getSueldo());
 
         try {
             if(! archivo.exists())
