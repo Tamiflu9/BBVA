@@ -98,7 +98,7 @@ Actividad numero 7:
 Diseñar un query que traiga lo siguiente: conteo de empleados y a que Ciudad pertenecen
 */
 
-select DEPARTAMENTS.ubicacion, count(EMPLOYEE.empId) from EMPLOYEE
+select DEPARTAMENTS.ubicacion, count(EMPLOYEE.empId) as conteo from EMPLOYEE
 left join DEPARTAMENTS on EMPLOYEE.dept = DEPARTAMENTS.dept_Name
 group by ubicacion;
 
