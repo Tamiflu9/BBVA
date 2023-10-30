@@ -112,7 +112,7 @@ public class Ejercicio6 {
                     archivo.createNewFile();
                     System.out.println("Se creo el fichero");
                 }
-                FileWriter fw = new FileWriter(archivo);
+                FileWriter fw = new FileWriter(archivo.getAbsoluteFile(), true);
                 BufferedWriter bw = new BufferedWriter (fw);
 
                 contenido = "Aplicacion: " + appT.getNombre() + '\n' +
