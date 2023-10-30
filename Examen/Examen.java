@@ -1,7 +1,4 @@
 package Examen;
-
-import Ejercico6.Ejercicio6;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
