@@ -114,10 +114,12 @@ public class Ejercicio6 {
                 }
                 FileWriter fw = new FileWriter(archivo);
                 BufferedWriter bw = new BufferedWriter (fw);
-                contenido = "Aplicacion: " + appT.getNombre() + '\'' +
+
+                contenido = "Aplicacion: " + appT.getNombre() + '\n' +
                             "Ganancia neta mensual: " + appT.gananciaMensual(appT.getCantUsus(),appT.getCostoM()) +
-                            '\'' + "Total usuarios: " + appT.totalUsuarios(appT.getCantUsus()) +  '\'' ;
-                bw.write(contenido);
+                            '\n' + "Total usuarios: " + appT.totalUsuarios(appT.getCantUsus()) +  '\n' + '\n';
+                bw.append(contenido);
+                //bw.write(contenido);
                 bw.close();
             }
             catch(IOException e) {
