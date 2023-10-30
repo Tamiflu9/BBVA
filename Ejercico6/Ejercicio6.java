@@ -15,19 +15,17 @@ public class Ejercicio6 {
             String caracteres = "";
 
             while((caracteres = objeto.readLine()) != null) {
-                String[] parts = caracteres.split(": ");
+                String nombreApp = caracteres.substring(12);
+                apli = nombreApp;
 
-                for(int i = 0; i < 3; i++){
-                    if(i == 0){
-                        apli = parts[1];
-                        System.out.println(apli);
-                    }else if(i == 1){
-                        cantUsu = Integer.parseInt(parts[1]);
-                        System.out.println(cantUsu);
-                    }else{
-                        costM = Integer.parseInt(parts[1]);
-                        System.out.println(costM);
-                    }
+                String cUsusarios = objeto.readLine();
+                if(cUsusarios.startsWith("Cantidad Usuarios: ")){
+                    cantUsu = Integer.parseInt(objeto.readLine().substring(18, cUsusarios.length()));
+                }
+
+                String cMensual = objeto.readLine();
+                if(cMensual.startsWith("Costo Mensual: ")){
+                    costM = Integer.parseInt(objeto.readLine().substring(16, cMensual.length()));
                 }
 
                 Aplicacion app = new Aplicacion(apli, cantUsu, costM);
