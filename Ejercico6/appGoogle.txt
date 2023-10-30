@@ -1,0 +1,15 @@
+Aplicacion: Youtube
+Cantidad Usuarios: 100000
+Costo Mensual: 2
+Aplicacion: Android
+Cantidad Usuarios: 300000
+Costo Mensual: 1
+Aplicacion: Bigquery
+Cantidad Usuarios: 50000
+Costo Mensual: 100
+Aplicacion: Looker Studio
+Cantidad Usuarios: 10000
+Costo Mensual: 5
+Aplicacion: Youtube Kids
+Cantidad Usuarios: 1000
+Costo Mensual: 2
