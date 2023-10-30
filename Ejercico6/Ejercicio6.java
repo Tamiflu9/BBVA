@@ -1,6 +1,10 @@
 package Ejercico6;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Ejercicio6 {
 
@@ -9,7 +13,10 @@ public class Ejercicio6 {
         int cantUsu = 0;
         int costM = 0;
 
+        String vaci = "";
+
         try {
+            Files.write(Paths.get("C:\\curso\\src\\src\\Ejercico6\\output_proceso_google.txt"),vaci.getBytes());
             File documento = new File("C:\\curso\\src\\src\\Ejercico6\\appGoogle.txt");
             BufferedReader objeto = new BufferedReader(new FileReader(documento));
             String apli = "";
@@ -108,18 +115,18 @@ public class Ejercicio6 {
         @Override
         public void run() {
             try {
-                if(! archivo.exists()) {
+                if(!archivo.exists()) {
                     archivo.createNewFile();
                     System.out.println("Se creo el fichero");
                 }
+
                 FileWriter fw = new FileWriter(archivo.getAbsoluteFile(), true);
                 BufferedWriter bw = new BufferedWriter (fw);
 
                 contenido = "Aplicacion: " + appT.getNombre() + '\n' +
                             "Ganancia neta mensual: " + appT.gananciaMensual(appT.getCantUsus(),appT.getCostoM()) +
                             '\n' + "Total usuarios: " + appT.totalUsuarios(appT.getCantUsus()) +  '\n' + '\n';
-                bw.append(contenido);
-                //bw.write(contenido);
+                bw.write(contenido);
                 bw.close();
             }
             catch(IOException e) {
