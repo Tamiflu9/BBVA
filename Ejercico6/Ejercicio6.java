@@ -5,30 +5,32 @@ import java.io.*;
 public class Ejercicio6 {
 
     public static void main (String [] args) {
-        String apli = "";
+        String nom = "";
         int cantUsu = 0;
         int costM = 0;
 
         try {
             File documento = new File("C:\\curso\\src\\src\\Ejercico6\\appGoogle.txt");
             BufferedReader objeto = new BufferedReader(new FileReader(documento));
-            String caracteres = "";
+            String apli = "";
 
-            while((caracteres = objeto.readLine()) != null) {
-                String nombreApp = caracteres.substring(12);
-                apli = nombreApp;
+            while((apli = objeto.readLine()) != null) {
 
-                String cUsusarios = objeto.readLine();
-                if(cUsusarios.startsWith("Cantidad Usuarios: ")){
-                    cantUsu = Integer.parseInt(objeto.readLine().substring(18, cUsusarios.length()));
-                }
+                nom = apli.split(": ")[1];
+                System.out.println(nom);
 
-                String cMensual = objeto.readLine();
-                if(cMensual.startsWith("Costo Mensual: ")){
-                    costM = Integer.parseInt(objeto.readLine().substring(16, cMensual.length()));
-                }
+                String cUsusarios = objeto.readLine().split(": ")[1];
+                cantUsu = Integer.parseInt(cUsusarios);
+                System.out.println(cantUsu);
 
-                Aplicacion app = new Aplicacion(apli, cantUsu, costM);
+                String cMensual = objeto.readLine().split(": ")[1];
+                costM = Integer.parseInt(cMensual);
+                System.out.println(costM);
+
+
+                Aplicacion app = new Aplicacion(nom, cantUsu, costM);
+                System.out.println(app.toString());
+
                 Thread hiloNoDemonio = new Thread(new Tarea(app));
                 hiloNoDemonio.start();
 
@@ -39,12 +41,13 @@ public class Ejercicio6 {
                 }
 
             }
+            objeto.close();
         } catch(IOException e) {
             e.printStackTrace();
         }
     }
 
-    class Aplicacion implements iGananciaMensual {
+    static class Aplicacion implements iGananciaMensual {
         private String nombre;
         private int cantUsus;
         private int costoM;
@@ -75,13 +78,22 @@ public class Ejercicio6 {
         public int totalUsuarios(int cantUsus) {
             return cantUsus*12;
         }
+
+        @Override
+        public String toString() {
+            return "Aplicacion{" +
+                    "nombre='" + nombre + '\'' +
+                    ", cantUsus=" + cantUsus +
+                    ", costoM=" + costoM +
+                    '}';
+        }
     }
 
-    class Tarea implements Runnable {
+    static class Tarea implements Runnable {
 
         private Aplicacion appT;
 
-        private String ruta = "C:\\curso\\src\\";
+        private String ruta = "C:\\curso\\src\\src\\Ejercico6\\";
         private String nombreArchivo = "output_proceso_google.txt";
         private String ruta_NombreArchivo = ruta + nombreArchivo;
 
